@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 
-export default function AddPackage(params) {
+export default function Search(params) {
   const navigation = useNavigation();
   const selectedService = params;
 
@@ -10,6 +10,11 @@ export default function AddPackage(params) {
       <Text>
         {selectedService.id} - {selectedService.title}
       </Text>
+      <TextInput
+        style={styles.input}
+        placeholder='Informe o número do pedido'
+        onSubmitEditing={(event) => console.log(event.nativeEvent.text)}
+      ></TextInput>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.back}>Voltar</Text>
       </TouchableOpacity>
@@ -31,6 +36,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: 'white',
     borderWidth: 1,
+  },
+  input: {
+    height: 40,
+    width: 220,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
   back: {
     color: 'white',

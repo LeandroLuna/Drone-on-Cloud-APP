@@ -1,15 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default function AddPackage(params) {
+export default function Default(params) {
   const navigation = useNavigation();
   const selectedService = params;
 
   return (
     <View style={styles.container}>
-      <Text>
-        {selectedService.id} - {selectedService.title}
-      </Text>
+      <Text>Serviço indisponivel..</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.back}>Voltar</Text>
       </TouchableOpacity>

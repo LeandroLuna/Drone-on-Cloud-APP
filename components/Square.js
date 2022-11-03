@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   shortDescription: {
-    color: 'black',
+    color: 'grey',
     fontSize: 13,
     textAlign: 'center',
   },

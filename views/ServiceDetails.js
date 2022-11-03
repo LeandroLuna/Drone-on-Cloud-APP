@@ -1,6 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import addPackage from './ServicesDetails/addPackage';
+import AddPackage from './ServicesDetails/AddPackage';
+import Cancel from './ServicesDetails/Cancel';
+import Default from './ServicesDetails/Default';
+import Search from './ServicesDetails/Search';
+import ShowAllPackages from './ServicesDetails/ShowAllPackages';
 
 export default function ServiceDetails() {
   const navigation = useNavigation();
@@ -8,63 +12,14 @@ export default function ServiceDetails() {
 
   switch (selectedService.id) {
     case 1:
-      return addPackage(selectedService);
-      break;
+      return AddPackage(selectedService);
     case 2:
-      return (
-        <View style={styles.container}>
-          <Text>
-            {selectedService.id} - {selectedService.title}
-          </Text>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-            <Text style={styles.back}>Voltar</Text>
-          </TouchableOpacity>
-        </View>
-      );
-      break;
+      return Cancel(selectedService);
     case 3:
-      return (
-        <View style={styles.container}>
-          <Text>
-            {selectedService.id} - {selectedService.title}
-          </Text>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-            <Text style={styles.back}>Voltar</Text>
-          </TouchableOpacity>
-        </View>
-      );
-      break;
+      return ShowAllPackages(selectedService);
+    case 4:
+      return Search(selectedService);
     default:
-      return (
-        <View style={styles.container}>
-          <Text>Serviço indisponivel..</Text>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-            <Text style={styles.back}>Voltar</Text>
-          </TouchableOpacity>
-        </View>
-      );
-      break;
+      return Default(selectedService);
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'cornflowerblue',
-  },
-  button: {
-    backgroundColor: 'red',
-    width: 100,
-    height: 25,
-    borderRadius: 10,
-    borderColor: 'white',
-    borderWidth: 1,
-  },
-  back: {
-    color: 'white',
-    textAlign: 'center',
-    paddingTop: 3,
-  },
-});
