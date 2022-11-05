@@ -11,7 +11,7 @@ export default function Search(params) {
 
   return (
     <View style={styles.container}>
-      <Title selectedService={selectedService}></Title>
+      <Title data={selectedService}></Title>
       <TextInput
         style={styles.input}
         placeholder='Informe o código de rastreio do pedido'
