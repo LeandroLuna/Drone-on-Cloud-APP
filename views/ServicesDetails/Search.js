@@ -1,9 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
+import { useContext } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import { PackagesContext } from '../../controllers/PackagesContext';
 
 export default function Search(params) {
   const navigation = useNavigation();
   const selectedService = params;
+  const { searchPackage } = useContext(PackagesContext);
 
   return (
     <View style={styles.container}>
@@ -12,8 +15,9 @@ export default function Search(params) {
       </Text>
       <TextInput
         style={styles.input}
-        placeholder='Informe o número do pedido'
-        onSubmitEditing={(event) => console.log(event.nativeEvent.text)}
+        placeholder='Informe o código de rastreio do pedido'
+        // onSubmitEditing={() => searchPackage(event.nativeEvent.text)}
+        onSubmitEditing={() => alert('Função não implementada! :>')}
       ></TextInput>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.back}>Voltar</Text>
