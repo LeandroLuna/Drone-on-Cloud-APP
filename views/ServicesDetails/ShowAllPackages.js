@@ -2,13 +2,13 @@ import { useNavigation } from '@react-navigation/native';
 import { useContext } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import Card from '../../components/Card';
+import Title from '../../components/Title';
 import { PackagesContext } from '../../controllers/PackagesContext';
 
 export default function ShowAllPackages(params) {
   const navigation = useNavigation();
   const selectedService = params;
   const { packages } = useContext(PackagesContext);
-  console.log(packages);
 
   function PackagesList() {
     if (!packages.length) {
@@ -28,9 +28,7 @@ export default function ShowAllPackages(params) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        {selectedService.id} - {selectedService.title}
-      </Text>
+      <Title data={selectedService}></Title>
       <PackagesList></PackagesList>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.back}>Voltar</Text>
@@ -45,13 +43,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'cornflowerblue',
-  },
-  title: {
-    marginBottom: 10,
-    textTransform: 'capitalize',
-    fontSize: 22,
-    color: '#F9F871',
-    fontWeight: '700',
   },
   button: {
     backgroundColor: 'red',

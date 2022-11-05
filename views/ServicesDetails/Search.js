@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { useContext } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import Title from '../../components/Title';
 import { PackagesContext } from '../../controllers/PackagesContext';
 
 export default function Search(params) {
@@ -10,14 +11,11 @@ export default function Search(params) {
 
   return (
     <View style={styles.container}>
-      <Text>
-        {selectedService.id} - {selectedService.title}
-      </Text>
+      <Title selectedService={selectedService}></Title>
       <TextInput
         style={styles.input}
         placeholder='Informe o código de rastreio do pedido'
-        // onSubmitEditing={() => searchPackage(event.nativeEvent.text)}
-        onSubmitEditing={() => alert('Função não implementada! :>')}
+        onSubmitEditing={(event) => searchPackage(event.nativeEvent.text)}
       ></TextInput>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.back}>Voltar</Text>

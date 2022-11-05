@@ -5,19 +5,17 @@ import { useContext } from 'react';
 import { PackagesContext } from '../controllers/PackagesContext';
 
 export default function Card({ delivery }) {
-  const pack = new Package(...delivery);
   const { setFavorite } = useContext(PackagesContext);
-
   return (
     <View style={styles.container}>
-      <Text style={styles.information}>Código de rastreio: {pack.trackingNumber}</Text>
-      <Text style={styles.information}>Titulo: {pack.title}</Text>
-      <Text style={styles.information}>Data do pedido: {pack.reqDate}</Text>
-      <Text style={styles.information}>Data de entrega: {pack.deliveryDate}</Text>
-      <Text style={styles.information}>Status: {pack.status}</Text>
+      <Text style={styles.information}>Código de rastreio: {delivery.trackingNumber}</Text>
+      <Text style={styles.information}>Titulo: {delivery.title}</Text>
+      <Text style={styles.information}>Data do pedido: {delivery.reqDate}</Text>
+      <Text style={styles.information}>Data de entrega: {delivery.deliveryDate}</Text>
+      <Text style={styles.information}>Status: {delivery.status}</Text>
 
-      <TouchableOpacity style={styles.icon} onPress={() => setFavorite(pack.trackingNumber)}>
-        <Ionicons name={pack.flagged ? 'flag' : 'flag-outline'} size='20'></Ionicons>
+      <TouchableOpacity style={styles.icon} onPress={() => setFavorite(delivery.trackingNumber)}>
+        <Ionicons name={delivery.flagged ? 'flag' : 'flag-outline'} size='20'></Ionicons>
       </TouchableOpacity>
     </View>
   );

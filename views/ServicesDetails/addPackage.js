@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useContext } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
+import Title from '../../components/Title';
 import { PackagesContext } from '../../controllers/PackagesContext';
 
 export default function AddPackage(params) {
@@ -11,9 +12,7 @@ export default function AddPackage(params) {
 
   return (
     <View style={styles.container}>
-      <Text>
-        {selectedService.id} - {selectedService.title}
-      </Text>
+      <Title data={selectedService}></Title>
       <TouchableOpacity onPress={() => addPackage()}>
         <Text>Add item</Text>
       </TouchableOpacity>

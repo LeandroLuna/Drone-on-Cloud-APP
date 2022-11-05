@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Title from '../../components/Title';
 
 export default function Default(params) {
   const navigation = useNavigation();
@@ -7,7 +8,8 @@ export default function Default(params) {
 
   return (
     <View style={styles.container}>
-      <Text>Serviço indisponivel..</Text>
+      <Title data={selectedService}></Title>
+      <Text style={styles.defaultText}>Serviço indisponivel!</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.back}>Voltar</Text>
       </TouchableOpacity>
@@ -21,6 +23,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'cornflowerblue',
+  },
+  defaultText: {
+    color: 'white',
+    fontSize: 17,
+    marginVertical: 20,
   },
   button: {
     backgroundColor: 'red',

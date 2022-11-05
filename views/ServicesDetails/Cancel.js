@@ -1,15 +1,22 @@
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useContext } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import Title from '../../components/Title';
+import { PackagesContext } from '../../controllers/PackagesContext';
 
 export default function Cancel(params) {
   const navigation = useNavigation();
   const selectedService = params;
+  const { deletePackage } = useContext(PackagesContext);
 
   return (
     <View style={styles.container}>
-      <Text>
-        {selectedService.id} - {selectedService.title}
-      </Text>
+      <Title data={selectedService}></Title>
+      <TextInput
+        style={styles.input}
+        placeholder='Informe o código de rastreio do pedido que deseja excluir'
+        onSubmitEditing={(event) => deletePackage(event.nativeEvent.text)}
+      ></TextInput>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.back}>Voltar</Text>
       </TouchableOpacity>
@@ -31,6 +38,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: 'white',
     borderWidth: 1,
+  },
+  input: {
+    height: 40,
+    width: 220,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
   back: {
     color: 'white',
