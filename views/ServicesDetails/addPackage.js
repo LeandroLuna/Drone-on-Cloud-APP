@@ -2,20 +2,17 @@ import { useNavigation } from '@react-navigation/native';
 import { useContext } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
+import Forms from '../../components/Forms';
 import Title from '../../components/Title';
-import { PackagesContext } from '../../controllers/PackagesContext';
 
 export default function AddPackage(params) {
   const navigation = useNavigation();
   const selectedService = params;
-  const { addPackage } = useContext(PackagesContext);
 
   return (
     <View style={styles.container}>
       <Title data={selectedService}></Title>
-      <TouchableOpacity onPress={() => addPackage()}>
-        <Text>Add item</Text>
-      </TouchableOpacity>
+      <Forms></Forms>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.back}>Voltar</Text>
       </TouchableOpacity>

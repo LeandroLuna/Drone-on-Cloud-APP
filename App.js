@@ -37,15 +37,3 @@ export default function App() {
     </AppProviders>
   );
 }
-
-/*
-Um app para realizar a solicitação dos serviços de entrega. O app deve simular o processo de solicitação com lista de serviços e navegação entre telas
-
-a. Componentes (2,0 pontos): Crie componentes para representar os elementos
-visuais (telas, cards, botões, etc)
-
-b. Navegação (2,0 pontos): Crie pelo menos duas telas com navegação entre elas.
-Você pode usar o TabNavigation e/ou StackNavigation.
-
-c. State (1,0 pontos): Realize o controle de estado de pelo menos um componente.
-*/
